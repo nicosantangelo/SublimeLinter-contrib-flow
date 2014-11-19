@@ -3,7 +3,7 @@ SublimeLinter-contrib-flow **WIP**
 
 [![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow)
 
-This linter plugin for [SublimeLinter][docs] provides an interface to [flow](flowtype.org). It will be used with files that have the "Javascript"
+This linter plugin for [SublimeLinter][docs] provides an interface to [flow](http://flowtype.org). It will be used with files that have the "Javascript"
 
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
