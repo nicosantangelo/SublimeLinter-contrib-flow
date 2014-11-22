@@ -53,7 +53,6 @@ class Flow(Linter):
         if match:
             open_file_name = os.path.basename(self.view.file_name())
             linted_file_name = match.group('file_name')
-            print(linted_file_name)
 
             if linted_file_name == open_file_name:
                 message_title = match.group('message_title')
