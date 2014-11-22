@@ -24,11 +24,9 @@ class Flow(Linter):
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 0.1.0'
     regex = r'''(?xi)
-        # First line is the file, line, col and optional message
-        ^.+:(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>\w*)\r?\n
-
-        # Second line is the message
-        ^(?P<message>.+)$
+        /.+/(?P<file_name>.+):(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>[a-zA-Z0-9 ]*)\r?\n
+        (?P<message>[a-zA-Z0-9 ]+)\r?\n?
+        (?P<message_footer>.+)
     '''
     multiline = True
     line_col_base = (1, 1)
