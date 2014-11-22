@@ -26,9 +26,8 @@ class Flow(Linter):
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 0.1.0'
     regex = r'''(?xi)
-        /.+/(?P<file_name>.+):(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>[a-zA-Z0-9 ]*)\r?\n
-        (?P<message>[a-zA-Z0-9 ]+)\r?\n?
-        (?P<message_footer>.+)
+        /.+/(?P<file_name>.+):(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>[a-zA-Z0-9- ]*)\r?\n
+        (?P<message>[a-zA-Z0-9- ]+)(\r?\n\s\s/.+:\d+:\d+,\d+:\s?(?P<message_footer>[a-zA-Z0-9- ]+))?
     '''
     multiline = True
     line_col_base = (1, 1)
@@ -57,6 +56,7 @@ class Flow(Linter):
             if linted_file_name == open_file_name:
                 message_title = match.group('message_title')
                 message = match.group('message')
+                message_footer = match.group('message_footer') or ""
 
                 # force line numbers to be at least 0
                 # if not they appear at end of file
@@ -67,7 +67,7 @@ class Flow(Linter):
                 near = None
 
                 if message_title:
-                    message = message_title + " " + message
+                    message = message_title + " " + message + " " + message_footer
 
                 return match, line, col, error, warning, message, near
 
