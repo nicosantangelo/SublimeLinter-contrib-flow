@@ -10,6 +10,8 @@
 
 """This module exports the Flow plugin class."""
 
+import os
+import re
 from SublimeLinter.lint import Linter, util
 
 
@@ -18,7 +20,7 @@ class Flow(Linter):
     """Provides an interface to flow."""
 
     syntax = ('javascript', 'javascriptnext')
-    cmd = 'flow check'
+    cmd = 'flow check --show-all-errors'
     executable = 'flow'
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
@@ -40,8 +42,6 @@ class Flow(Linter):
     comment_re = r'\s*/[/*]'
     config_file = ('.flowconfig')
 
-    #  TODO: Override def cmd(self): here to provide an executable path and --libs support using the Settings
-
     def split_match(self, match):
         """
         Return the components of the match.
@@ -50,23 +50,27 @@ class Flow(Linter):
         """
         # restore word regex to default each iteration
         self.word_re = None
-
         if match:
-            message_title = match.group('message_title')
-            message = match.group('message')
+            open_file_name = os.path.basename(self.view.file_name())
+            linted_file_name = match.group('file_name')
+            print(linted_file_name)
 
-            # force line numbers to be at least 0
-            # if not they appear at end of file
-            line = max(int(match.group('line')) - 1, 0)
-            col = int(match.group('col')) - 1
-            error = None
-            warning = None
-            near = None
+            if linted_file_name == open_file_name:
+                message_title = match.group('message_title')
+                message = match.group('message')
 
-            if message_title:
-                message = message_title + " " + message
+                # force line numbers to be at least 0
+                # if not they appear at end of file
+                line = max(int(match.group('line')) - 1, 0)
+                col = int(match.group('col')) - 1
+                error = None
+                warning = None
+                near = None
 
-            return match, line, col, error, warning, message, near
+                if message_title:
+                    message = message_title + " " + message
+
+                return match, line, col, error, warning, message, near
 
         return match, None, None, None, None, '', None
 
