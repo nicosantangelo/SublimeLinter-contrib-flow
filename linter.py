@@ -36,11 +36,11 @@ class Flow(Linter):
     selectors = {}
     word_re = None
     defaults = {
-        # Allows the user to lint *all* files, regardless of the type annotations
+        # Allows the user to lint *all* files, regardless of whether they have the `/* @flow */` declaration at the top.
         'all': False,
-        
+
         # Options for flow
-        '--lib:,+': ''
+        '--lib:,': ''
     }
     inline_settings = None
     inline_overrides = None
