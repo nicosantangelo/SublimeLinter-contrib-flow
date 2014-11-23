@@ -2,6 +2,11 @@ SublimeLinter-contrib-flow
 -------------------------------
 This linter plugin for SublimeLinter provides an interface to flow.
 
+Until flow allows for a path to be supplied as an argument it's recommended that the type annotation ( @flow ) is added and the errors cleared one file at the time.
+
+The linter will run `flow check` on the current dir and use --show-all-errors, filtering the errors for the current file, but if a lot of errors are shown, this might be a little slow.
+
+
 ** IMPORTANT! **
 
 Before this plugin will activate, you *must*

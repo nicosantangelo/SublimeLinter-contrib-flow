@@ -1,9 +1,9 @@
-SublimeLinter-contrib-flow **WIP**
+SublimeLinter-contrib-flow
 ================================
 
 [![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow)
 
-This linter plugin for [SublimeLinter][docs] provides an interface to [flow](http://flowtype.org). It will be used with files that have the "Javascript"
+This linter plugin for [SublimeLinter][docs] provides an interface to [flow](http://flowtype.org). It will be used with files that have the "JavaScript"
 
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
@@ -32,8 +32,8 @@ In addition to the standard SublimeLinter settings, SublimeLinter-contrib-flow p
 
 |Setting|Description|Inline Setting|Inline Override|
 |:------|:----------|:------------:|:-------------:|
-|foo|Something.|&#10003;| |
-|bar|Something else.| |&#10003;|
+|all|If set to true, the liner will use pass --all to `flow check` which will check every javascript file regardless of whether they have the `/* @flow */` declaration at the top. [More info](http://flowtype.org/docs/new-project.html#typechecking-your-files)| | |
+|lib|Add a path to your interface files. [More info](http://flowtype.org/docs/third-party.html#interface-files)| | |
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
