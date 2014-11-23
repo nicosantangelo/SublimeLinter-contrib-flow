@@ -35,11 +35,26 @@ class Flow(Linter):
     error_stream = util.STREAM_STDOUT
     selectors = {}
     word_re = None
-    defaults = {}
+    defaults = {
+        # Allows the user to lint *all* files, regardless of the type annotations
+        'all': False,
+        
+        # Options for flow
+        '--lib:,+': ''
+    }
     inline_settings = None
     inline_overrides = None
     comment_re = r'\s*/[/*]'
     config_file = ('.flowconfig')
+
+    def cmd(self):
+        """Return the command line to execute."""
+        command = [self.executable_path, 'check', '--show-all-errors']
+
+        if self.get_merged_settings()['all']:
+            command.append('--all')
+
+        return command
 
     def split_match(self, match):
         """
