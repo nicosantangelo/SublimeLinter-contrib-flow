@@ -12,4 +12,4 @@ The linter will run `flow check` on the current dir and use --show-all-errors, f
 Before this plugin will activate, you *must*
 follow the installation instructions here:
 
-https://github.com/Nicolas Santangelo/SublimeLinter-contrib-flow
+https://github.com/NicoSantangelo/SublimeLinter-flow
