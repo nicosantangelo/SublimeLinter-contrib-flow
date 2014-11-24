@@ -11,6 +11,8 @@ SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 
 ### Linter installation
 Before using this plugin, you must ensure that `flow` is installed on your system. To install `flow`, go to [flowtype.org](http://flowtype.org/docs/getting-started.html).
 
+Once installed, remember running `flow init` on your project (or add `.flowconfig` manually). The minimum version required is `0.1.0`.
+
 ### Linter configuration
 In order for `flow` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
 

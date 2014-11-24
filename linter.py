@@ -19,7 +19,6 @@ class Flow(Linter):
     """Provides an interface to flow."""
 
     syntax = ('javascript', 'javascriptnext')
-    cmd = 'flow check --show-all-errors'
     executable = 'flow'
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
@@ -35,11 +34,7 @@ class Flow(Linter):
         (\r?\n\s\s/.+:\s(?P<message_footer>.+))?
     '''
     multiline = True
-    line_col_base = (1, 1)
-    tempfile_suffix = None
     error_stream = util.STREAM_STDOUT
-    selectors = {}
-    word_re = None
     defaults = {
         # Allows the user to lint *all* files, regardless of whether they have the `/* @flow */` declaration at the top.
         'all': False,
@@ -47,8 +42,6 @@ class Flow(Linter):
         # Options for flow
         '--lib:,': ''
     }
-    inline_settings = None
-    inline_overrides = None
     comment_re = r'\s*/[/*]'
     config_file = ('.flowconfig')
 
