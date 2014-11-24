@@ -11,7 +11,6 @@
 """This module exports the Flow plugin class."""
 
 import os
-import re
 from SublimeLinter.lint import Linter, util
 
 
@@ -65,8 +64,10 @@ class Flow(Linter):
     def split_match(self, match):
         """
         Return the components of the match.
+
         We override this to catch linter error messages and return more presise
         info used for highlighting.
+
         """
         # restore word regex to default each iteration
         self.word_re = None
@@ -93,4 +94,3 @@ class Flow(Linter):
                 return match, line, col, error, warning, message, near
 
         return match, None, None, None, None, '', None
-
