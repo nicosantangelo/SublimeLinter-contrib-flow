@@ -26,8 +26,14 @@ class Flow(Linter):
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 0.1.0'
     regex = r'''(?xi)
-        /.+/(?P<file_name>.+):(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>[a-zA-Z0-9- ]*)\r?\n
-        (?P<message>[a-zA-Z0-9- ]+)(\r?\n\s\s/.+:\d+:\d+,\d+:\s?(?P<message_footer>[a-zA-Z0-9- ]+))?
+        # Warning location and optional title for the message
+        /.+/(?P<file_name>.+):(?P<line>\d+):(?P<col>\d+),\d+:\s?(?P<message_title>.*)\r?\n
+
+        # Main lint message
+        (?P<message>.+)
+
+        # Optional message, only extract the text, leave the path
+        (\r?\n\s\s/.+:\s(?P<message_footer>.+))?
     '''
     multiline = True
     line_col_base = (1, 1)
