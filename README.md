@@ -32,7 +32,6 @@ For general information on how SublimeLinter works with settings, please see [Se
 |:------|:----------|
 |all|If set to true, the liner will use pass --all to `flow check` which will check every javascript file regardless of whether they have the `/* @flow */` declaration at the top. [More info](http://flowtype.org/docs/new-project.html#typechecking-your-files)|
 |lib|Add a path to your interface files. [More info](http://flowtype.org/docs/third-party.html#interface-files)|
->>>>>>> 74b4ce5... Update readme
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
