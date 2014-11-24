@@ -1,7 +1,7 @@
 SublimeLinter-contrib-flow
 ================================
 
-[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-flow)
+[![Build Status](https://travis-ci.org/NicoSantangelo/SublimeLinter-contrib-flow.svg?branch=master)](https://travis-ci.org/NicoSantangelo/SublimeLinter-contrib-flow)
 
 This linter plugin for [SublimeLinter][docs] provides an interface to [flow](http://flowtype.org). It will be used with files that have the "JavaScript"
 
