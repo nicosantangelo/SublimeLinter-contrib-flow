@@ -1,3 +1,9 @@
+## Read me first
+
+Package moved [here](https://github.com/ckaznocha/SublimeLinter-contrib-flow). For more info, see this [issue](https://github.com/NicoSantangelo/SublimeLinter-contrib-flow/issues/2#issuecomment-64309171).
+
+___
+
 SublimeLinter-contrib-flow
 ================================
 
